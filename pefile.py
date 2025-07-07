@@ -24,7 +24,6 @@ import codecs
 import collections
 import copy as copymod
 import functools
-import gc
 import math
 import mmap
 import os
@@ -2960,8 +2959,6 @@ class PE:
         ):
             self.__data__.close()
             del self.__data__
-        # Run a full garbage collection to find unreachable objects and free them.
-        gc.collect()
 
     def close(self):
         self._close_data()
